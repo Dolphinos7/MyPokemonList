@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:PokemonFanSite}/pokemon-py/db.sqlite",
+            "name": "Pokemon site"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "Pokemon Site",
+            "database": "${workspaceFolder:PokemonFanSite}/pokemon-py/db.sqlite"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

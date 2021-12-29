@@ -1,0 +1,75 @@
+React Learning Notes:
+
+Part 1, Setup and Boiler Plate:
+    use npm (NodeJS Package Manager) to create react app with development server and everything: npx create-react-app {NAME}
+    package.json is dependencies, testing scripts and other metadata
+
+    VSCode Extension: ES7 React/Redux/GraphQL/React-Native snippets
+        rafce -> enter creates boiler plate function component (can get rid of import statement)
+        Example for class based component in App.js (requires react import)
+        impt: import prop types
+
+    npm install react-icons for icons
+
+    Dev Commands:
+    npm start, launch on localhost:3000
+
+    Public:
+    html files
+
+    Src:
+    Where components go
+
+    
+React Component Function Notes:
+    return is very similar to html with small differences (is JSX)
+        className instead of className
+        htmlFor instead of for
+        supports dynamic html with {} syntax
+            also supports arithmetic and turnary operators
+    Can only return a single element (one parent with children) (Parent can be empty bracket)
+
+html plugins:
+Emmett for complex stuff
+html tag wrapper: ctrl + i for wrap in div
+auto rename tag: renames both sides of the html tag
+
+Building Notes:
+npm run build (create build folder to deploy)
+sudo npm i -g serve (basic http sever)
+serve -s build -p 8000 (deploy build folder to port 8000)
+
+builds static assets, build folder is what you deploy
+
+useful npm stuff:
+npm install react-router-dom base-64
+
+
+useful api code snipped:
+
+  const getPokemon = async (pokemon) => {
+    const response = await fetch(pokemon.url);
+    return response.json();
+  };
+
+  useEffect(() => {
+    if (cache.current[stateUrl]) {
+      const myData = cache.current[stateUrl];
+      setData(myData);
+      return;
+    }
+    const fetchData = async () => {
+      setStatus("fetching");
+      const response = await fetch(stateUrl);
+      const allPokemon = await response.json();
+      let pokemonData = await Promise.all(
+        allPokemon.results.map(async (pokemon) => {
+          return await getPokemon(pokemon);
+        })
+      );
+      cache.current[stateUrl] = pokemonData;
+      setData(pokemonData);
+      setStatus("fetched");
+    };
+    fetchData();
+  }, [stateUrl]);

@@ -1,0 +1,25 @@
+Python version 3
+intall and use pipenv
+Next to remote button change envirenment to the pipenv virtual envirenment with the packages
+
+ctrl+shift+p for VSCode to open search
+
+pipenv notes:
+    pipenv shell (make sure %appdata%/python310/Scripts and Site-Packages are in path)
+    pipenv install flask flask-sqlalchemy flask-marshmallow marshmallow-sqlalchemy Flask-HTTPAuth PyJWT Werkzeug
+
+Create database from app.py:
+    1. Go into python shell in virtual envirenment
+    2. from app imprt db
+    3. db.create_all()
+    4. created db.sqlite which is the database with columns from the classes
+
+Postman Post Request:
+    post request to the api endpoint defined in the @app.route
+    set Headers key=Content-Type and value=application/json
+    in Body you put the json that you are sending (raw for json)
+
+Authentication Article: https://medium.com/@anubabajide/rest-api-authentication-in-flask-481518a7479b
+
+NOTE:
+    to make requests from browser must include CORS(app, resources={r"/*": {"origins": "*"}})
